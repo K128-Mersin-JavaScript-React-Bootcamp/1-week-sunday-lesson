@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <div id="page1">
+        <p>Homepage</p>
+        <button onclick="gotoLogin()">Go to login page</button>
+    </div>
+    <div id="page2">
+        <p>Login Page</p>
+        <span id="spnHello"></span>
+        <button onclick="handleBack()">Go back</button>
+    </div>
+
+
+    <script>
+        const page1 = document.getElementById("page1");
+        const page2 = document.getElementById("page2");
+        const spnHello = document.getElementById("spnHello");
+        page1.style.display = 'block';
+        page2.style.display = 'none';
+        function gotoLogin() {
+            const data = { 'username': "Zafer", 'password': "1234" };
+            const title = "";
+            const url = "login";
+            history.pushState(data, title, url);
+
+            page1.style.display = 'none';
+            page2.style.display = 'block';
+            spnHello.innerText = `Hello ${history.state.username}`
+        }
+        function handleBack(params) {
+            history.back();
+            page1.style.display = 'block';
+            page2.style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>

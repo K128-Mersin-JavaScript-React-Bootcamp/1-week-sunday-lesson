@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    img {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+    }
+    </style>
+</head>
+<body>
+
+    <img id="car" src="car.png" alt="">
+    <script>
+        // Timing functions
+        // setTimeout(() => {
+        //     car.style.left = '100px';
+        // }, 2000);
+        // clearTimeout(timer);
+
+        const car = document.getElementById("car");
+        let direction = 'right';
+        let left = 0;
+        const timer = setInterval(() => {
+            if(direction === 'right') {
+                left += 10;
+            } else {
+                left -= 10;
+            }
+            car.style.left= `${left}px`;
+            if(left + 100 >= window.innerWidth) {
+                // clearInterval(timer);
+                car.style.transform = 'rotateY(180deg)';
+                direction = 'left';
+                
+            }
+            //
+        }, 25);
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="car.png" alt="Red porsche 911">
+    
+
+    <script>
+        const images = document.querySelectorAll('img[alt="Red porsche 911"]');
+        images[0].src = "https://via.placeholder.com/140x100";
+        images[0].alt = "Placeholder Image";
+        //"https://via.placeholder.com/140x100"
+    </script>
+</body>
+</html>

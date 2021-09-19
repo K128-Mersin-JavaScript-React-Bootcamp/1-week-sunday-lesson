@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="www.example.com" method="post" id="frm1">
+        <input type="text" name="user" value="Zafer">
+        <input type="password" name="pass" value="1234">
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // const myForm = document.forms["frm1"];
+        // for (let i = 0; i < myForm.length; i++) {
+        //     const myInputElement = myForm.elements[i];
+        //     if(myInputElement.type == "submit") {
+        //         continue;
+        //     }
+        //     const value = myInputElement.value;
+        //     console.log(value)
+        // }
+
+        // FORMDATA
+        const myForm = document.forms["frm1"];
+        const formData = new FormData(myForm);
+        let obj = {};
+        formData.forEach((value, name) => {
+            obj[name] = value;
+        });
+        console.log(JSON.stringify(obj));
+    </script>
+</body>
+</html>

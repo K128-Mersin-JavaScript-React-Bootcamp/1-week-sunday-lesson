@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        span.error {
+            color: red;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+
+    <form action="www.example.com" method="post" id="frm1" onsubmit="return validateForm()">
+        <input type="text" name="user">
+        <span class="error">Lütfen adınızı giriniz</span>
+        <input type="password" name="pass">
+        <span class="error">Lütfen parolanızı giriniz</span>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        "use strict";
+        //x = 12;
+
+        function validateForm() {
+            let isSuccess = true;
+            const myForm = document.forms["frm1"];
+            const errors = document.getElementsByClassName('error');
+            for (let i = 0; i < errors.length; i++) {
+                const error = errors[i];
+                error.style.display = 'none';
+            }
+            if(!myForm.user.value) {
+                myForm.user.nextElementSibling.style.display = 'inline';
+                isSuccess = false
+            }
+            if(!myForm.pass.value) {
+                myForm.pass.nextElementSibling.style.display = 'inline';
+                isSuccess = false
+            }
+            return isSuccess;
+        }
+    </script>
+    
+</body>
+</html>

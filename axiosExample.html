@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        //  const url = "https://my-json-server.typicode.com/typicode/demo/posts";
+        // axios.get(url)
+        //     .then(function (response) {
+        //         // handle success
+        //         console.log(response.data);
+        //     })
+        //     .catch(function (error) {
+        //         // handle error
+        //         console.log("MyError", error);
+        //     })
+        //     .then(function () {
+        //         // always executed
+        //         console.log("finally");
+        //     });
+
+        const urlPosts = "https://my-json-server.typicode.com/typicode/demo/posts";
+        const urlComments = "https://my-json-server.typicode.com/typicode/demo/comments";
+        function getPosts() {
+            return axios.get(urlPosts);
+        }
+
+        function getComments() {
+            return axios.get(urlComments);
+        }
+
+        let getUserData = new Promise((myResolve, myReject) => {
+            setTimeout(() => myResolve("{name: 'Zafer', age: '30'}"), 3000);
+        });
+
+        Promise.all([getPosts(), getComments(), getUserData])
+            .then(function (results) {
+                const posts = results[0];
+                const comments = results[1];
+                const userData = results[2];
+                console.log("Posts", posts.data);
+                console.log("Comments", comments.data);
+                console.log("UserData", userData);
+            });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        span.error {
+            color: red;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+
+    <form action="www.example.com" method="post" id="frm1" onsubmit="return validateForm()">
+        <input type="text" name="user" required oninvalid="return handleInvalid(this)">
+        <input type="password" name="pass" required>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function handleInvalid(self) {
+            return self.setCustomValidity('Kullanıcı adınızı giriniz');
+        }
+    </script>
+    
+</body>
+</html>

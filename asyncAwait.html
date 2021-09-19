@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        (async () => {
+            // const url = "https://my-json-server.typicode.com/typicode/demo/posts";
+            // const res = await fetch(url);
+            // const json = await res.json();
+            // console.log(json);
+
+            // Error handling
+            const errorUrl = "errorUrl";
+            try {
+                const res = await fetch(errorUrl);
+                const json = await res.json();
+                console.log(json);
+            } catch (error) {
+                console.log("My error", error);
+            }
+        })();
+            // .then(res => {
+            //     if (!res.ok) {
+            //         throw new Error('Network response was not ok');
+            //     }
+            //     return res.json()
+            // })
+            // .then(jsonData => console.log(jsonData))
+            // .catch((err) => console.log("err", err));
+    </script>
+
+</body>
+
+</html>

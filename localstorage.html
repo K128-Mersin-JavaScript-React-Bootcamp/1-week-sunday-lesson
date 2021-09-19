@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // localstorage, sessionStorage, websql, indexedDb
+        const myData = [
+            {
+                "id": 1,
+                "body": "some comment",
+                "postId": 1
+            },
+            {
+                "id": 2,
+                "body": "some comment",
+                "postId": 1
+            }
+        ];
+        
+        localStorage.setItem("username", "Zafer");
+        localStorage.setItem("lastname", "AYAN");
+        localStorage.removeItem("lastname");
+
+        localStorage.setItem("myData", JSON.stringify(myData));
+        const myLocalStorageData = localStorage.getItem("myData");
+        console.log(JSON.parse(myLocalStorageData));
+    </script>
+</body>
+
+</html>

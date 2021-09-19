@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let loadUserData = new Promise((myResolve, myReject) => {
+            // API CALL
+            //setTimeout(() => myResolve("{name: 'Zafer', age: '30'}"), 3000);
+            
+            // An error happened
+            setTimeout(() => myReject("An error happened"), 3000);
+        });
+
+        loadUserData
+        .then((value) => {
+            document.write(value);
+        })
+        .catch((error) => {
+            document.write(`<span style="color:red;">${error}</span>`);
+        });
+    </script>
+</body>
+</html>
